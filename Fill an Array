@@ -1,0 +1,45 @@
+/**
+ * A program that will ask the user for a number of digits to be stored. The program then creates 
+ * an array of that size and then prompt the user for numbers to fill each position in the array. 
+ * When all of the positions are filled, it displays the contents of the array to the user.
+ * 
+ * @author Tariq Salama
+ * @version 20231710
+ */
+import java.util.Scanner;
+
+public class FillArray {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    
+    int numDigits;
+
+    do {
+    System.out.print("Please enter the number of digits to be stored: ");
+      numDigits = scanner.nextInt();
+    if (numDigits < 0) {
+                System.out.println("ERROR! You must enter a non-negative number of digits!");
+                System.out.println();
+            } else if (numDigits == 0) {
+                System.out.println("No digits to store? Goodbye!");
+                return;
+            }
+        } while (numDigits < 0);
+
+        int[] array = new int[numDigits];
+
+        for (int i = 0; i < numDigits; i++) {
+            System.out.print("Enter integer " + i + ": ");
+            array[i] = scanner.nextInt();
+        }
+
+        System.out.println("The contents of your array:");
+        System.out.println("Number of digits in array: " + numDigits);
+        System.out.print("Digits in array:");
+        for (int i = 0; i < numDigits; i++) {
+            System.out.print(" " + array[i]);
+            
+        }
+        System.out.println();
+    }
+  }
